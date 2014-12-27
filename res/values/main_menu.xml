@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="menu_list">
+        <item>Utwórz nową listę zakupów</item>
+        <item>Wybierz listę zakupów</item>
+        <item>Dodaj artykuły do listy posiadanych</item>
+        <item>Zobacz listę posiadanych artykułów</item>
+        <item>Usuń artykuł z listy posiadanych</item>
+    </string-array>
+</resources>
