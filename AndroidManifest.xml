@@ -14,5 +14,7 @@
         </activity>
         <activity android:name="CreateNewListActivity"
                   android:label="Tworzenie nowej listy"/>
+        <activity android:name="AddItemActivity"
+            android:label="Dodawanie artykułu"/>
     </application>
 </manifest>

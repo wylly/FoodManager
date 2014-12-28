@@ -1,6 +1,8 @@
 package com.example.FoodManager;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -21,7 +23,6 @@ public class CreateNewListActivity extends Activity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_new_list_view);
-
 
         listNameView = (EditText) findViewById(R.id.list_name);
 
