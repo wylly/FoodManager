@@ -1,6 +1,7 @@
 package com.example.FoodManager;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,8 @@ public class MainMenuActivity extends ListActivity {
     public void onListItemClick(ListView l, View v, int position, long id) {
         switch (position){
             case 0:
+                Intent intent = new Intent(this, CreateNewListActivity.class);
+                startActivity(intent);
                 break;
             case 1:
                 break;
