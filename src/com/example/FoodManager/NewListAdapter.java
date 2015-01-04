@@ -3,23 +3,28 @@ package com.example.FoodManager;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+import com.example.FoodManager.entities.SimpleItemEntity;
+
+import java.util.ArrayList;
 
 
-public class NewListAdapter extends ArrayAdapter<String> {
+public class NewListAdapter extends ArrayAdapter<SimpleItemEntity> {
 
     private ListView listView;
     private final Context context;
 //    private final String[] values;
     public ViewHolder holder;
-    public NewListAdapter(Context context, int textViewResourceId, String[] objects, ListView listView) {
+    private ArrayList<SimpleItemEntity> itemsList;
+    public NewListAdapter(Context context, int textViewResourceId, ArrayList<SimpleItemEntity> objects, ListView listView) {
         super(context, textViewResourceId, objects);
         this.context = context;
         this.listView = listView;
+        this.itemsList = objects;
+
     }
 
     static class ViewHolder{
@@ -28,8 +33,8 @@ public class NewListAdapter extends ArrayAdapter<String> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
-        String text = getItem(position);
+    public View getView(final int position, View convertView, ViewGroup parent){
+        String text = getItem(position).getName();
 
         View rowView = convertView;
 
@@ -46,29 +51,21 @@ public class NewListAdapter extends ArrayAdapter<String> {
 
         holder.textView.setText(text);
 
-        if (holder.textView.getText().equals(context.getString(R.string.add_new))) {
-            holder.btn.setImageResource(android.R.drawable.ic_menu_add);
-            holder.btn.setTag(1);
-            holder.textView.setTag(1);
-        } else {
-            holder.btn.setImageResource(android.R.drawable.ic_menu_close_clear_cancel);
-            holder.btn.setTag(0);
-        }
-
        holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch((Integer)v.getTag()){
-                    //Removing item
-                    case 0:
-                        System.out.println("rem");
-                        break;
-                    //Adding new item
-                    case 1:
-                        Intent intent = new Intent(v.getContext(), AddItemActivity.class);
-                        v.getContext().startActivity(intent);
-                        break;
-                }
+                itemsList.remove(getItem(position));
+                notifyDataSetChanged();
+            }
+        });
+
+        holder.textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AddItemActivity.class);
+                intent.putExtra("itemForEdit",getItem(position));
+                intent.putExtra("pos",position);
+                ((Activity)v.getContext()).startActivityForResult(intent, 2);
             }
         });
 

@@ -7,35 +7,48 @@
             tools:context=".ListActivity" >
 
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/list_name"
-            android:inputType="text"
-            android:editable="true"
-            android:autoText="false"
-            android:layout_weight="1"
-            android:textSize="25sp"
-            android:layout_marginBottom="10dp" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/newListClearButton"
-            android:src="@android:drawable/ic_input_delete"
-            android:onClick="clearListName"
-            android:layout_weight="0" />
-    </LinearLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/list_name"
+        android:inputType="text"
+        android:editable="true"
+        android:autoText="false"
+        android:textSize="25sp"
+        android:layout_marginBottom="10dp" />
 
     <ListView
         android:id="@+id/new_item_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </ListView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="addNewItem">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_new"
+            android:id="@+id/textView"
+            android:layout_weight="1"
+            android:textSize="25sp"
+            android:gravity="center" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/newListAddItem"
+            android:src="@android:drawable/ic_menu_add"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="6dp"
+            android:layout_weight="0"
+            />
+    </LinearLayout>
 
 </LinearLayout>
