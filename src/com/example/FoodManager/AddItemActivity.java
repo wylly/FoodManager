@@ -55,7 +55,7 @@ public class AddItemActivity extends Activity {
             TextView amountView = (TextView) findViewById(R.id.itemAmount);
             if(amountView.getText().toString().equals("")) amountView.setText("0");
 
-            SimpleItemEntity newItem = new SimpleItemEntity(nameView.getText().toString(),brandView.getText().toString(),sizeView.getSelectedItem().toString(),additionalInfo.getText().toString(),new Integer(amountView.getText().toString()));
+            SimpleItemEntity newItem = new SimpleItemEntity(nameView.getText().toString(),brandView.getText().toString(),sizeView.getSelectedItem().toString(),additionalInfo.getText().toString(),new Double(amountView.getText().toString()));
 
             Intent returnIntent = new Intent();
             if(!isNew) returnIntent.putExtra("pos",position);

@@ -62,7 +62,7 @@ public class CreateNewListActivity extends Activity {
             case 2:
                 if(resultCode == Activity.RESULT_OK){
                     SimpleItemEntity newItem = (SimpleItemEntity) data.getExtras().get("newItem");
-                    itemsList.get((Integer)data.getExtras().get("pos")).setAll(newItem);
+                    itemsList.get((Integer)data.getExtras().get("pos")).setSimple(newItem);
                     adapter.notifyDataSetChanged();
                 }
         }
